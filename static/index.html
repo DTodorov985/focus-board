@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FocusBoard — Your Study Dashboard</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <script defer src="/static/app.js"></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="brand"><div class="brand-logo" aria-hidden="true">✦</div><span>focus<span class="brand-em">board</span></span></div>
+      <div class="topbar-right"><span class="status-dot"></span><span>Study workspace</span><span class="avatar">FB</span></div>
+    </header>
+
+    <main class="content">
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">YOUR PERSONAL STUDY PLANNER</span>
+          <h1>Make room for<br /><em>what matters.</em></h1>
+          <p>Plan your next step, track your progress, and keep every deadline in sight.</p>
+        </div>
+        <div class="hero-decoration" aria-hidden="true"><div class="ring ring-1"></div><div class="ring ring-2"></div><div class="ring ring-3"></div><div class="hero-star">✦</div></div>
+      </section>
+
+      <section class="stats" aria-label="Study statistics">
+        <article class="stat-card"><div class="stat-icon purple">▤</div><div><div class="stat-caption">Total tasks</div><div id="stat-total" class="stat-value">0</div></div></article>
+        <article class="stat-card"><div class="stat-icon green">✓</div><div><div class="stat-caption">Completed</div><div id="stat-done" class="stat-value">0</div></div></article>
+        <article class="stat-card"><div class="stat-icon peach">↗</div><div><div class="stat-caption">Still to do</div><div id="stat-open" class="stat-value">0</div></div></article>
+        <article class="stat-card stat-progress"><div class="stat-caption">Your progress</div><div class="progress-line"><strong id="stat-progress">0%</strong><span>done so far</span></div><div class="progress-track"><div id="progress-bar"></div></div></article>
+      </section>
+
+      <div class="main-grid">
+        <section class="panel tasks-panel">
+          <div class="panel-heading"><div><div class="overline">STAY ON TRACK</div><h2>My study tasks</h2><p>One thing at a time. You’ve got this.</p></div><div class="task-icon">☰</div></div>
+          <div class="filter-tabs" role="group" aria-label="Filter tasks">
+            <button class="filter active" data-filter="all" aria-pressed="true">All tasks</button>
+            <button class="filter" data-filter="open" aria-pressed="false">To do</button>
+            <button class="filter" data-filter="done" aria-pressed="false">Completed</button>
+          </div>
+          <div class="task-search">
+            <label for="task-search">Search tasks</label>
+            <input id="task-search" type="search" placeholder="Search by title or course" aria-controls="task-list" />
+          </div>
+          <div id="task-list" class="task-list" aria-live="polite"></div>
+          <p id="empty-state" class="empty-state" hidden>No tasks here yet. Add one to get started ✨</p>
+        </section>
+
+        <aside class="panel form-panel">
+          <div class="overline">CREATE SOMETHING GOOD</div>
+          <h2>Add a new task</h2>
+          <p class="form-description">Break the big goals into little wins.</p>
+          <form id="task-form">
+            <label for="title">Task title <span>*</span></label>
+            <input id="title" name="title" maxlength="80" placeholder="e.g. Finish Python assignment" required />
+            <label for="course">Subject / course</label>
+            <input id="course" name="course" maxlength="40" placeholder="e.g. Programming" />
+            <label for="due_date">Due date</label>
+            <input id="due_date" name="due_date" type="date" />
+            <label for="priority">Priority</label>
+            <select id="priority" name="priority">
+              <option>Medium</option><option>High</option><option>Low</option>
+            </select>
+            <button id="submit" class="submit-button" type="submit">＋ &nbsp; Add task</button>
+            <div id="form-message" role="status" aria-live="polite"></div>
+          </form>
+          <div class="tip"><span>✧</span><div><strong>Small steps add up.</strong><br />A little progress each day makes a big difference.</div></div>
+        </aside>
+      </div>
+      <footer>FOCUSBOARD <span>·</span> BUILT FOR YOUR NEXT GREAT IDEA</footer>
+    </main>
+  </div>
+</body>
+</html>
